@@ -27,35 +27,12 @@ def get_sgpa(roll_arr):
         list=[enrollment_number, roll_number,class_room, student_name, sgpa,backs(marks)]
         
         if same_branch: list.pop(2)
+        data_list.append(list)    
+           
+    frame_columns=[ "Enrollment", "Roll.No","branch", "_Name_of_Student___", "SGPA","Back_logs"]
+    if same_branch: frame_columns.pop(2)
     
-        if len(marks)>=8*2 or (same_branch and same_semester): 
-            data_list.append([*list,*marks])
-            
-        elif len(marks) == 7 * 2:
-            data_list.append([*list,*marks[:10],
-                              None,None,*marks[12:14],
-                              *marks[10:12]
-                              ])
-            subject_arr=[*subject_arr[:10],None,None,*subject_arr[12:14],*subject_arr[10:12]]
-        else: 
-            data_list.append([*list,*marks[:8],
-                              None,None,*marks[8:12],
-                              (marks[-2] if len(marks)>=14 else None),
-                              (marks[-1] if len(marks)>=14 else None)
-                              ])
-       
-    if same_branch and same_semester:
-        print('branches and semester are all same 👌')
-        frame_columns = [("Enrollment", '', ''), ("Roll.No", '', ''), ("_Name_of_Student___", '', ''), ("SGPA", '', ''), ("Back_logs", '', ''),*subject_arr[0]]
-        
-    elif same_branch:
-        print('branches are all same 👌')
-        frame_columns=[ ("Enrollment",''), ("Roll.No",''), ("_Name_of_Student___",''), ("SGPA",''),("Back_logs",''),*sub1]
-    else: 
-        print('branches are not same 🙌')        
-        frame_columns=[ ("Enrollment",''), ("Roll.No",''),("branch",''), ("_Name_of_Student___",''), ("SGPA",''),("Back_logs",''),*sub1]
-   
-    frame=pd.DataFrame(data_list,columns=pd.MultiIndex.from_tuples(frame_columns))
+    frame=pd.DataFrame(data_list,columns=frame_columns)
     frame.dropna(axis=1, how='all',inplace=True)
     return frame
   
@@ -76,6 +53,7 @@ def get_cgpa(roll_arr):
         class_room=f'{(branch_names[roll[2]][-1]).upper()}{"" if roll[2] in non_sectional_branch else "."+chr(int(roll[4])+65)}'
          
         list=[enrollment_number, roll_number,class_room, student_name, round(sgpa_sum/(semester-data_skip),2),back_sum,(semester-data_skip)]
+        
         if same_branch: list.pop(2)
         data_list.append(list)
         
