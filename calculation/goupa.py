@@ -2,11 +2,11 @@
 
 
 
-from sieren.calculation.testing import testing
+from calculation.testing import testing
 import numpy as np
 import pandas as pd
-from sieren.source.soma import *
-from sieren.calculation.webScraping import *
+from source.soma import *
+from calculation.webScraping import *
         
 def get_sgpa(roll_arr):
     data_list,subject_arr=[],[]
