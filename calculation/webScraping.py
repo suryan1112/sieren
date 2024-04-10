@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
-from sieren.source.soma import *
+from source.soma import *
 import roman
-from sieren.calculation.helper import *
+from calculation.helper import *
 
 
 def fetching(roll,credits):

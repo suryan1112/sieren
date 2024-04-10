@@ -1,11 +1,11 @@
-from sieren.source.soma import *
-from sieren.calculation.creditz import *
-from sieren.source.testa import *
+from source.soma import *
+from calculation.creditz import *
+from source.testa import *
 
 def backs(marks):
     fail_count = 0
     for i in range(0, len(marks), 2): 
-        if marks[i]=='F' or marks[i]=='Ab':
+        if marks[i][-1]=='F' or marks[i][-2:]=='Ab':
             fail_count += 1
     return fail_count
 
