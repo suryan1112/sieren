@@ -1,5 +1,5 @@
-from calculation.goupa import get_cgpa,get_sgpa
-from source.helper import *
+from sieren.calculation.goupa import get_cgpa,get_sgpa
+from sieren.source.helper import *
 
 def branchwise_sgpa(addmission_year,branch,semester,section=None,sorted=True,backs=True):
     
@@ -46,7 +46,6 @@ def complete_branch(last_year,branch,last_year_semester,section=None,sorted=True
     branch= find_parent_branch(branch)
     if section: section=section.upper()
     if branch is None: 
-        print('Branch is not correct ❌')
         print('Branch is not correct ❌')
         return     
     

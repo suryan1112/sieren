@@ -1,4 +1,4 @@
-from source.soma import *
+from sieren.source.soma import *
 import os
 import pandas as pd
 

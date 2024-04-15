@@ -1,5 +1,5 @@
-from calculation.goupa import get_cgpa,get_sgpa
-from source.helper import *
+from sieren.calculation.goupa import get_cgpa,get_sgpa
+from sieren.source.helper import *
 
 def yearly_sgpa(addmission_year,semester,sorted=True,backs=True):
     
