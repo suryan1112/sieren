@@ -1,6 +1,6 @@
-from source.soma import *
-from calculation.creditz import *
-from source.testa import *
+from sieren.source.soma import *
+from sieren.calculation.creditz import *
+from sieren.source.testa import *
 
 def backs(marks):
     fail_count = 0
