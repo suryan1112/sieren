@@ -47,6 +47,7 @@ def complete_branch(last_year,branch,last_year_semester,section=None,sorted=True
     if section: section=section.upper()
     if branch is None: 
         print('Branch is not correct ❌')
+        print('Branch is not correct ❌')
         return     
     
     roll_arr=[]
