@@ -1,5 +1,5 @@
-from calculation.goupa import get_cgpa,get_sgpa
-from source.helper import *
+from sieren.calculation.goupa import get_cgpa,get_sgpa
+from sieren.source.helper import *
 
 def branchwise_sgpa(addmission_year,branch,semester,section=None,sorted=True):
     

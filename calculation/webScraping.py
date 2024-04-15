@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
-from source.soma import *
+from sieren.sourcesoma import *
 import roman
-from calculation.helper import *
+from sieren.calculation.helper import *
  
 def fetching(roll):
     subject_arr=[]
