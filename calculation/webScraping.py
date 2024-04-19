@@ -2,10 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 from sieren.source.soma import *
 import roman
-from sieren.calculation.helper import *
  
 def fetching(roll):
-    subject_arr=[]
+    
     response = requests.get("http://results.ietdavv.edu.in/DisplayStudentResult", params={"rollno": roll, "typeOfStudent": "Regular"})
     data = BeautifulSoup(response.text, "html.parser")
 
@@ -17,15 +16,10 @@ def fetching(roll):
     enrollment_number = personal_data[0].string
     roll_number = personal_data[1].string
     student_name = personal_data[2].string
-
-    subjects_details = data.find_all("table", {"border": "1", "align": "center", "width": "80%"})[1].find_all("tr")
     
-    (subjects,marks)=subject_handeler(subjects_details)
-         
-    subject_arr.append(subjects)
     sgpa = float(data.find("table", {"height": "40%"}).find_all("b")[-1].string)
         
-    return (enrollment_number,roll_number,student_name,sgpa,marks,subject_arr)
+    return (enrollment_number,roll_number,student_name,sgpa)
 
 def fetching2(roll):
     semester=int(roll[3])
@@ -41,10 +35,7 @@ def fetching2(roll):
     roll_number = personal_data[1].string
     student_name = personal_data[2].string
 
-    subjects_details = data.find_all("table", {"border": "1", "align": "center", "width": "80%"})[1].find_all("tr")
-
     sgpa_sum=float(data.find("table", {"height": "40%"}).find_all("b")[-1].string)
-    back_sum=backs2(subjects_details)
     
     data_skip=0
     sem_dummy=semester-1  
@@ -58,10 +49,8 @@ def fetching2(roll):
             print('-->','data is unavailable on server 🤷',end='')
             data_skip+=1
         else:
-            subjects_details = data.find_all("table", {"border": "1", "align": "center", "width": "80%"})[1].find_all("tr")
-            back_sum+=backs2(subjects_details)
             sgpa_sum+= float(data.find("table", {"height": "40%"}).find_all("b")[-1].string)
         print()           
         sem_dummy-=1
         
-    return (enrollment_number,roll_number,student_name,sgpa_sum,semester,data_skip,back_sum)
+    return (enrollment_number,roll_number,student_name,sgpa_sum,semester,data_skip)
