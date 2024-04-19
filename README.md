@@ -35,7 +35,7 @@ frame=sieren.branchwise_sgpa(23,'electric',1,'A')
 print(frame)
 ```
 _a container folder is been created and all your fetched data and operation will be monitored over there_   
->`sem(1)_batch[23]_ETC.A_(SGPA)_sorted.xlsx`
+>`sem(1)_batch[23]_ETC.A_(SGPA)_sorted.xlsx`   
 *EXCEL FILE FORMATE* 
 ![output img](https://i.ibb.co/r5btQQY/Screenshot-2024-04-20-004101.png)
 
