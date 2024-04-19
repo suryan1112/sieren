@@ -32,8 +32,9 @@ def ordered_frame(frame,sorted,SGPA):
     frame.index+=1 
     return frame
 
-def save_file(frame, semester, admission_year, sorted, branch=None, section=None, category=None):
 
+def file_name_creater(semester, admission_year, sorted, branch=None, section=None, category=None):
+    
     branch_suffix = f'_{branch_names[branch][-1].upper()}' if branch else ''
     section_suffix = f'.{section}' if section else f'.{sections[branch]}' if branch and len(sections.get(branch, '')) > 1 else ''
     
@@ -43,7 +44,11 @@ def save_file(frame, semester, admission_year, sorted, branch=None, section=None
                  f'{section_suffix}'
                  f'_({category.upper()})'
                  f'{"_sorted" if sorted else ""}')
-    file_name+='.xlsx'
+    
+    return file_name+'.xlsx'
+
+def save_file(frame, file_name):
+   
     path=os.getcwd()+'\container'
     
     os.makedirs(path, exist_ok=True)
@@ -52,7 +57,8 @@ def save_file(frame, semester, admission_year, sorted, branch=None, section=None
     
     print('file is been saved',path,file_name,'👍')
     
-def save_file2(frame,branch,sorted,section=None,category=None):
+
+def create_file_name(branch,sorted,section=None,category=None):
     
     branch_suffix = f'_{branch_names[branch][-1].upper()}' if branch else ''
     section_suffix = f'.{section}' if section else f'.{sections[branch]}' if branch and len(sections.get(branch, '')) > 1 else ''
@@ -62,13 +68,47 @@ def save_file2(frame,branch,sorted,section=None,category=None):
                  f'{section_suffix}'
                  f'_({category.upper()})'
                  f'{"_sorted" if sorted else ""}')
-    file_name+='.xlsx'
-    path=os.getcwd()+'\container'
     
-    os.makedirs(path, exist_ok=True)
-    with pd.ExcelWriter(os.path.join(path,file_name), engine='xlsxwriter') as writer:  
-        frame.to_excel(writer, sheet_name='Sheet1')
+    return file_name+'.xlsx'    
+
+
+# def save_file(frame, semester, admission_year, sorted, branch=None, section=None, category=None):
+
+#     branch_suffix = f'_{branch_names[branch][-1].upper()}' if branch else ''
+#     section_suffix = f'.{section}' if section else f'.{sections[branch]}' if branch and len(sections.get(branch, '')) > 1 else ''
     
-    print('file is been saved',path,file_name,'👍')
+#     file_name = (f'sem({semester})'
+#                  f'_batch[{admission_year}]'
+#                  f'{branch_suffix}'
+#                  f'{section_suffix}'
+#                  f'_({category.upper()})'
+#                  f'{"_sorted" if sorted else ""}')
+#     file_name+='.xlsx'
+#     path=os.getcwd()+'\container'
+    
+#     os.makedirs(path, exist_ok=True)
+#     with pd.ExcelWriter(os.path.join(path,file_name), engine='xlsxwriter') as writer:  
+#         frame.to_excel(writer, sheet_name='Sheet1')
+    
+#     print('file is been saved',path,file_name,'👍')
+    
+# def save_file2(frame,branch,sorted,section=None,category=None):
+    
+#     branch_suffix = f'_{branch_names[branch][-1].upper()}' if branch else ''
+#     section_suffix = f'.{section}' if section else f'.{sections[branch]}' if branch and len(sections.get(branch, '')) > 1 else ''
+    
+#     file_name = ('All'
+#                  f'{branch_suffix}'
+#                  f'{section_suffix}'
+#                  f'_({category.upper()})'
+#                  f'{"_sorted" if sorted else ""}')
+#     file_name+='.xlsx'
+#     path=os.getcwd()+'\container'
+    
+#     os.makedirs(path, exist_ok=True)
+#     with pd.ExcelWriter(os.path.join(path,file_name), engine='xlsxwriter') as writer:  
+#         frame.to_excel(writer, sheet_name='Sheet1')
+    
+#     print('file is been saved',path,file_name,'👍')
     
 
