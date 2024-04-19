@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-from sieren.sourcesoma import *
+from sieren.source.soma import *
 import roman
 from sieren.calculation.helper import *
  
