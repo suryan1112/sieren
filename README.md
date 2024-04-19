@@ -31,7 +31,7 @@ sieren.branchwise_sgpa(21,'it',5)
 
 the return type is a **pandas data frame**.  
 ```python
-frame=sieren.branchwise_sgpa(23,'civil',1)
+frame=sieren.branchwise_sgpa(23,'electric',1,'A')
 print(frame)
 ```
 _a container folder is been created and all your fetched data and operation will be monitored over there_  
