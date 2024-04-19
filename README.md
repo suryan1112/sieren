@@ -102,7 +102,16 @@ def save_file(frame, file_name):
 
 
 ### working 
-here branchwise and yearly manages the students rollnumber array and get_sgpa and get_cgpa actualy performs the main operations of *1) fetching the data 2) making the frame*
+here branchwise and yearly manages the students rollnumber array. 
+>function in branchiole and yeariole create a array of rollnumbers  
+**(21,'it',5)**=> `['21I5001',-to-,'22I5099' , '21I5101',-to-,'22I5199']`  
+**(21,5)**=> chunks of roll numbers of complete year
+
+
+
+**get_sgpa** and **get_cgpa** actualy performs the main operations of *1) fetching the data 2) making the frame*  
+all other extra curriculum activitys like *1) sorting 2) file saving*   
+are been done within the fuctions ~~branchwise and yearwise~~.
 
 ### Technology
 > `web-scrapping` and `selenium`
