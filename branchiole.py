@@ -16,7 +16,7 @@ def branchwise_sgpa(addmission_year,branch,semester,section=None,sorted=True):
     if frame is None: return
     
     ordered_frame(frame,sorted,SGPA=True)
-    print('saving file...')   
+     
     save_file(frame,file_name)
     return frame
 

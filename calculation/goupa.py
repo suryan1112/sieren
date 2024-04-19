@@ -75,7 +75,7 @@ def get_cgpa(roll_arr):
     for roll in roll_arr:
         print('_______') 
         print(roll)
-        print(same_branch,same_semester,'helow')  
+         
         touple=fetching2(roll) # main step...
         if touple is None: continue
         (enrollment_number,roll_number,student_name,sgpa_sum,semester,data_skip,back_sum)=touple
