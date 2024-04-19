@@ -1,10 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
-from sieren.sourcesoma import *
+from sieren.source.soma import *
 import roman
 from sieren.calculation.helper import *
- 
-def fetching(roll):
+
+
+def fetching(roll,credits):
+        
     subject_arr=[]
     response = requests.get("http://results.ietdavv.edu.in/DisplayStudentResult", params={"rollno": roll, "typeOfStudent": "Regular"})
     data = BeautifulSoup(response.text, "html.parser")
@@ -20,12 +22,12 @@ def fetching(roll):
 
     subjects_details = data.find_all("table", {"border": "1", "align": "center", "width": "80%"})[1].find_all("tr")
     
-    (subjects,marks)=subject_handeler(subjects_details)
+    (subjects,marks,Total_marks)=subject_handeler(subjects_details,credits,roll[2])
          
     subject_arr.append(subjects)
     sgpa = float(data.find("table", {"height": "40%"}).find_all("b")[-1].string)
         
-    return (enrollment_number,roll_number,student_name,sgpa,marks,subject_arr)
+    return (enrollment_number,roll_number,student_name,sgpa,marks,subject_arr,Total_marks)
 
 def fetching2(roll):
     semester=int(roll[3])
