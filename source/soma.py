@@ -2,6 +2,8 @@
 sectional_branches=['C','I','T']
 non_sectional_branch=['E','M','V']
 
+years_available=['1ˢᵗ', '2ⁿᵈ', '3ʳᵈ', '4ᵗʰ']
+
 branch_names={'C':['computer engineering','computer science','cse','cs'],
             'I':['information & technology engineering','information technology','it'],
             'T':['electric & telecommunication engineering','entc','tc','etc'],
