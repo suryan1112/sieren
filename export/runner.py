@@ -2,9 +2,9 @@ import firebase_admin
 from firebase_admin import credentials, firestore, storage
 import os
 
-cred = credentials.Certificate(os.getcwd()+'/sieren/export'+"/sieren-8710b-firebase-adminsdk-m67jr-8f7de5846b.json")
+cred = credentials.Certificate(os.getcwd()+'/sieren/export'+"/sieren-dd781-firebase-adminsdk-i5dtz-316374b648.json")
 firebase_admin.initialize_app(cred, {
-    'storageBucket': 'sieren-8710b.appspot.com'
+    'storageBucket': 'sieren-dd781.appspot.com'
 })
 
 db = firestore.client()
@@ -51,7 +51,7 @@ def alternative_flow(file_name):
 
 def file_uploading(file_path):
     print("File is being uploading... to fire-base-server")
-    
+
     file_name=file_path.split("\\")[-1]
     blob = bucket.blob("gs://sieren-8710b.appspot.com/" + file_name)
     blob.upload_from_filename(file_path)
