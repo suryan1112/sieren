@@ -1,7 +1,7 @@
 from sieren.source.soma import *
 import os
 import pandas as pd
-
+from sieren.export.runner import file_uploading
 
 def find_parent_branch(branch):
     for parent, child_names in branch_names.items():
@@ -54,8 +54,10 @@ def save_file(frame, file_name):
     os.makedirs(path, exist_ok=True)
     with pd.ExcelWriter(os.path.join(path,file_name), engine='xlsxwriter') as writer:  
         frame.to_excel(writer, sheet_name='Sheet1')
-    
-    print('file is been saved',path,file_name,'👍')
+        
+    file_path=os.path.join(path,file_name)    
+    file_uploading(file_path)
+    print('file is been saved',file_path,'👍')
     
 
 def create_file_name(branch,sorted,section=None,category=None):
