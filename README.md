@@ -6,6 +6,7 @@
 ```powershell
 pip install numpy pandas roman re requests sys time os
 pip install beautifylsoup
+pip install firebase_admin
 ```
 ensure that you are haveing these libraries already installed.  
 ```powershell
@@ -15,13 +16,14 @@ pip install sieren
 > In sieren-beta version we are using `IETdavv.edu.in` to fetch the credits of subjects, it is the most time consuming process because here, *The data is very huge..*
 ## initializing
 ```python
-import sieren
+import sieren as sr
 ```
 
 ## implementation
-the **branchwise_sgpa** contains `addmission_year`, `branch`, `semester`,`section`, `sorted`[default=True] as arguments
+the **branchwise_sgpa** contains `addmission_year`, `branch`, `semester`,`section`, `sorted`[default=True] as arguments   
+also there is `force_full` set it to **True**, if you don't want to fetch data from fire-base (it will force-fully runs the scrapping loop)
 ```python
-sieren.branchwise_sgpa(21,'it',5)
+sr.branchwise_sgpa(21,'it',5)
 ```
 > [!TIP]
 > * make sure you are having good network connection
@@ -31,10 +33,12 @@ sieren.branchwise_sgpa(21,'it',5)
 
 the return type is a **pandas data frame**.  
 ```python
-frame=sieren.branchwise_sgpa(23,'electric',1,'A')
+frame=sr.branchwise_sgpa(23,'electric',1,'A')
 print(frame)
 ```
 _a container folder is been created and all your fetched data and operation will be monitored over there_  
+>`sem(1)_batch[23]_ETC.A_(SGPA)_sorted.xlsx`   
+
 *EXCEL FILE FORMATE* 
 ![output img](https://i.ibb.co/r5btQQY/Screenshot-2024-04-20-004101.png)
 
@@ -117,7 +121,7 @@ are been done within the fuctions ~~branchwise and yearwise~~.
 > `web-scrapping` and `selenium`
 
 > [!WARNING]
-> do not excecute the program as many times. our server provides around **1000 calls per day** , so if the server got crashed, you would have to be wait for the next day.   
+> do not excecute the program as many times (same file can be extracted multiple times). our server provides around **3000 calls per day** , so if the server got crashed, you would have to be wait for the next day.   
 > *so , kindly do not exceed this limit!*
 
 > [!CAUTION]
