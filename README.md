@@ -37,7 +37,7 @@ frame=sr.branchwise_sgpa(23,'electric',1,'A')
 print(frame)
 ```
 _a container folder is been created and all your fetched data and operation will be monitored over there_  
->`sem(1)_batch[23]_ETC.A_(SGPA)_sorted.xlsx`   
+>`sem(1)_batch[23]_ETC.A_(SGPA+GRADES)_sorted.xlsx`   
 
 *EXCEL FILE FORMATE* 
 ![output img](https://i.ibb.co/r5btQQY/Screenshot-2024-04-20-004101.png)
@@ -118,7 +118,7 @@ all other extra curriculum activitys like *1) sorting 2) file saving*
 are been done within the fuctions ~~branchwise and yearwise~~.
 
 ### Technology
-> `web-scrapping` and `selenium`
+> `web-scrapping` , `selenium` and `google-firebase`
 
 > [!WARNING]
 > do not excecute the program as many times (same file can be extracted multiple times). our server provides around **3000 calls per day** , so if the server got crashed, you would have to be wait for the next day.   
