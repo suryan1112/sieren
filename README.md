@@ -121,7 +121,7 @@ are been done within the fuctions ~~branchwise and yearwise~~.
 > `web-scrapping` , `selenium` and `google-firebase`
 
 > [!WARNING]
-> do not excecute the program as many times. our server provides around **1000 calls per day** , so if the server got crashed, you would have to be wait for the next day.   
+> do not excecute the program as many times (same file can be extracted multiple times). our server provides around **3000 calls per day** , so if the server got crashed, you would have to be wait for the next day.   
 > *so , kindly do not exceed this limit!*
 
 > [!CAUTION]
