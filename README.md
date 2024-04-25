@@ -6,6 +6,7 @@
 ```powershell
 pip install numpy pandas roman re requests sys time os
 pip install beautifylsoup
+pip install firebase_admin
 ```
 ensure that you are haveing these libraries already installed.  
 ```powershell
@@ -19,7 +20,8 @@ import sieren
 ```
 
 ## implementation
-the **branchwise_sgpa** contains `addmission_year`, `branch`, `semester`,`section`, `sorted`[default=True] as arguments
+the **branchwise_sgpa** contains `addmission_year`, `branch`, `semester`,`section`, `sorted`[default=True] as arguments   
+also there is `force_full` set it to **True**, if you don't want to fetch data from fire-base (it will force-fully runs the scrapping loop)
 ```python
 sieren.branchwise_sgpa(21,'it',5)
 ```
@@ -35,6 +37,8 @@ frame=sieren.branchwise_sgpa(23,'civil',1)
 print(frame)
 ```
 _a container folder is been created and all your fetched data and operation will be monitored over there_  
+>`sem(1)_batch[23]_ETC.A_(SGPA)_sorted.xlsx`   
+
 *EXCEL FILE FORMATE* 
 ![output img](https://i.ibb.co/5K37fvW/Screenshot-2024-04-19-121316.png)
 
@@ -114,7 +118,7 @@ all other extra curriculum activitys like *1) sorting 2) file saving*
 are been done within the fuctions ~~branchwise and yearwise~~.
 
 ### Technology
-> `web-scrapping` and `selenium`
+> `web-scrapping` , `selenium` and `google-firebase`
 
 > [!WARNING]
 > do not excecute the program as many times. our server provides around **1000 calls per day** , so if the server got crashed, you would have to be wait for the next day.   
