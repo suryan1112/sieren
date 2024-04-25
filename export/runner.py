@@ -47,8 +47,6 @@ def alternative_flow(file_name):
     
     return True
 
-
-
 def file_uploading(file_path):
     print("File is being uploading... to fire-base-server")
 
