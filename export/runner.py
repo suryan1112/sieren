@@ -25,7 +25,8 @@ def check_file_exist(file_name):
 
 def alternative_flow(file_name):
     destination_path = os.path.join(os.getcwd(), 'container', file_name)
-
+    os.makedirs(os.getcwd()+'\container', exist_ok=True)
+    
     blob_path = "gs://sieren-8710b.appspot.com/" + file_name
     blob = bucket.blob(blob_path)
 
