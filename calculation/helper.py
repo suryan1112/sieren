@@ -47,8 +47,8 @@ def subject_handeler(subjects_details,credits,branch):
         subjects.append((subject_data[0].string,subject_data[1].string,'Theory'))
         subjects.append((subject_data[0].string,subject_data[1].string,'Practical'))
         
-        G1=subject_data[-2].string
-        G2=subject_data[-1].string
+        G1=subject_data[-2].string.capitalize()
+        G2=subject_data[-1].string.capitalize()
         
         marks.append(superscript[grd[G1]] +'*'+superscript[credit[0]]+'  '+G1 if G1 else 'F')  #THEORY...
         marks.append(superscript[grd[G2]] +'*'+superscript[credit[1]]+'  '+G2 if G2 else 'F')  #PRACTICAL...
@@ -62,9 +62,8 @@ def subject_handeler(subjects_details,credits,branch):
         subjects.append((subject_data[0].string,subject_data[1].string,'Theory'))
         subjects.append((subject_data[0].string,subject_data[1].string,'Practical'))
         
-        G1=subject_data[-2].string
-        
-        G2=subject_data[-1].string
+        G1=subject_data[-2].string.capitalize()
+        G2=subject_data[-1].string.capitalize()
         
         marks.append(superscript[grd[G1]] +'*'+superscript[credit[0]]+'  '+G1 if G1 else 'F')  #THEORY...
         marks.append(superscript[grd[G2]] +'*'+superscript[credit[1]]+'  '+G2 if G2 else 'F')  #PRACTICAL...
