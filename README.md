@@ -4,9 +4,8 @@
  created to fetch students marks with there cgpa, backs, etc. we are fetching data from iet's database to our local. we are also applying sorting to the fetched data according to the student's **sgpa** or **cgpa** this is very benifical for students because they can compare each other with the others and enhance there performance.
 ## installation
 ```powershell
-pip install numpy pandas roman re requests sys time os
-pip install beautifylsoup
-pip install firebase_admin
+pip install numpy pandas roman requests beautifulsoup4 firebase-admin
+pip install xlsxwriter
 ```
 ensure that you are haveing these libraries already installed.  
 ```powershell
